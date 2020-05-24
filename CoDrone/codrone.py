@@ -262,7 +262,7 @@ class CoDrone:
                     self.send_request(DataType.State)
                     sleep(0.01)
                     print('receive : ' + (self._st - time.time()).__str__())
-            #sleep(2)
+            sleep(2)
 
     def _grab_sensor_in_background(self, lock):
         self._lockState = RLock()
@@ -748,7 +748,7 @@ class CoDrone:
                 if not self._flagDiscover:
                     break
 
-            #sleep(2)
+            sleep(1)
 
             length = len(self._devices)
             closest_device = None
@@ -829,7 +829,7 @@ class CoDrone:
 
                 if battery < self._lowBatteryPercent:
                     print(">> Low Battery!!")
-                #sleep(3)
+                sleep(3)
                 return self._flagConnected
             else:
                 self._print_error(">> Trying to connect : {}/5".format(reconnection + 1))
