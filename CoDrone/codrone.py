@@ -262,7 +262,7 @@ class CoDrone:
                     self.send_request(DataType.State)
                     sleep(0.01)
                     print('receive : ' + (self._st - time.time()).__str__())
-            sleep(2)
+            #sleep(2)
 
     def _grab_sensor_in_background(self, lock):
         self._lockState = RLock()
@@ -730,7 +730,7 @@ class CoDrone:
         # system reset
         if flag_system_reset:
             self.send_link_system_reset()
-            sleep(3)
+            #sleep(3)
 
         # ModeLinkBroadcast.Passive mode change
         self.send_link_mode_broadcast(ModeLinkBroadcast.Passive)
@@ -748,7 +748,7 @@ class CoDrone:
                 if not self._flagDiscover:
                     break
 
-            sleep(2)
+            #sleep(2)
 
             length = len(self._devices)
             closest_device = None
@@ -829,7 +829,7 @@ class CoDrone:
 
                 if battery < self._lowBatteryPercent:
                     print(">> Low Battery!!")
-                sleep(3)
+                #sleep(3)
                 return self._flagConnected
             else:
                 self._print_error(">> Trying to connect : {}/5".format(reconnection + 1))
@@ -864,7 +864,7 @@ class CoDrone:
         # system reset
         if flag_system_reset:
             self.send_link_system_reset()
-            sleep(3)
+            #sleep(3)
 
         # ModeLinkBroadcast.Passive mode change
         self.send_link_mode_broadcast(ModeLinkBroadcast.Passive)
@@ -882,7 +882,7 @@ class CoDrone:
                 if not self._flagDiscover:
                     break
 
-            sleep(2)
+            #sleep(2)
 
             length = len(self._devices)
             closest_device = None
@@ -957,7 +957,7 @@ class CoDrone:
 
                 if battery < self._lowBatteryPercent:
                     print(">> Low Battery!!")
-                sleep(3)
+                #sleep(3)
                 return self._flagConnected
             else:
                 self._print_error(">> Trying to connect : {}/5".format(reconnection + 1))
@@ -1184,7 +1184,7 @@ class CoDrone:
 
         if not self._check_ack(header, data):
             self._print_error(">> Failed to takeoff")
-        sleep(3)
+        #sleep(3)
 
     def land(self):
         """This function makes the drone stop all commands, hovers, and makes a soft landing where it is.
@@ -1204,7 +1204,7 @@ class CoDrone:
 
         if not self._check_ack(header, data):
             self._print_error(">> Failed to land")
-        sleep(3)
+        #sleep(3)
 
     def hover(self, duration=0):
         """This function makes the drone hover for a given amount of time.
@@ -1382,7 +1382,7 @@ class CoDrone:
             sleep(0.05)
 
         self.send_control(0, 0, 0, 0)
-        sleep(1)
+        #sleep(1)
 
     @lockState
     def rotate180(self):
